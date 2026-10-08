@@ -1,12 +1,17 @@
 body {
   margin: 0;
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
   background: #f7f8fc;
   color: #171923;
 }
 
+/* =========================
+   NAVBAR
+========================= */
+
 .glass-nav {
-  background: rgba(17, 24, 39, .94);
+  background: rgba(17, 24, 39, 0.94);
   backdrop-filter: blur(12px);
 }
 
@@ -14,10 +19,36 @@ body {
   color: #ff7043;
 }
 
+.nav-link {
+  position: relative;
+  margin-left: 10px;
+  color: rgba(255, 255, 255, 0.75) !important;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ff8a65 !important;
+}
+
 .nav-link.active {
   color: #ff8a65 !important;
   font-weight: 700;
 }
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 2px;
+  height: 2px;
+  background: #ff7043;
+  border-radius: 10px;
+}
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
   min-height: 100vh;
@@ -25,8 +56,13 @@ body {
   align-items: center;
   padding: 120px 0 70px;
   color: white;
+
   background:
-    radial-gradient(circle at 80% 20%, rgba(255,112,67,.35), transparent 30%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 112, 67, 0.35),
+      transparent 30%
+    ),
     linear-gradient(135deg, #111827 0%, #1e293b 55%, #312e81 100%);
 }
 
@@ -35,7 +71,7 @@ body {
 }
 
 .hero p {
-  color: rgba(255,255,255,.78);
+  color: rgba(255, 255, 255, 0.78);
 }
 
 .hero-card img {
@@ -44,12 +80,20 @@ body {
   object-fit: cover;
 }
 
+/* =========================
+   SECTION
+========================= */
+
 .section-label {
   color: #ff7043;
   font-weight: 800;
   letter-spacing: 2px;
-  font-size: .8rem;
+  font-size: 0.8rem;
 }
+
+/* =========================
+   SERVICE CARD
+========================= */
 
 .service-card,
 .team-card,
@@ -57,21 +101,25 @@ body {
   border: 1px solid #e9eaf0;
   background: white;
   border-radius: 20px;
-  box-shadow: 0 12px 35px rgba(15, 23, 42, .07);
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.07);
 }
 
 .service-card {
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(15, 23, 42, .12);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
 
 .service-icon {
   font-size: 2.5rem;
 }
+
+/* =========================
+   TEAM
+========================= */
 
 .page-section {
   min-height: calc(100vh - 80px);
@@ -80,11 +128,12 @@ body {
 
 .team-card {
   overflow: hidden;
-  transition: transform .2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .team-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
 }
 
 .team-card img {
@@ -93,6 +142,10 @@ body {
   object-fit: cover;
 }
 
+/* =========================
+   CONTACT
+========================= */
+
 .contact-form .form-control {
   border-radius: 12px;
   border-color: #dfe3ea;
@@ -100,7 +153,7 @@ body {
 
 .contact-form .form-control:focus {
   border-color: #ff7043;
-  box-shadow: 0 0 0 .2rem rgba(255,112,67,.15);
+  box-shadow: 0 0 0 0.2rem rgba(255, 112, 67, 0.15);
 }
 
 .btn-primary {
@@ -116,14 +169,30 @@ body {
   margin-bottom: 1.25rem;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
 @media (max-width: 767px) {
   .hero {
     padding-top: 110px;
   }
+
   .hero h1 {
     font-size: 2.7rem;
   }
+
   .page-section {
     padding-top: 120px;
+  }
+
+  .nav-link {
+    margin-left: 0;
+  }
+
+  .nav-link.active::after {
+    left: 0;
+    right: auto;
+    width: 45px;
   }
 }

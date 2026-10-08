@@ -21,7 +21,7 @@ const team = [
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&q=80",
   },
   {
-    name: "jizka",
+    name: "Jizka",
     role: "Project Manager",
     image:
       "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=500&q=80",
@@ -41,6 +41,9 @@ function Navbar() {
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#nav"
+          aria-controls="nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -48,19 +51,34 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="nav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <NavLink className="nav-link" to="/">
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+              >
                 Home
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/team">
+              <NavLink
+                to="/team"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+              >
                 Team
               </NavLink>
             </li>
 
             <li className="nav-item">
-              <NavLink className="nav-link" to="/contact">
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+              >
                 Contact
               </NavLink>
             </li>
@@ -148,9 +166,7 @@ function Home() {
               <div className="col-md-4" key={title}>
                 <div className="service-card h-100 p-4">
                   <div className="service-icon">{icon}</div>
-
                   <h4 className="fw-bold mt-3">{title}</h4>
-
                   <p className="text-secondary mb-0">{text}</p>
                 </div>
               </div>
@@ -184,7 +200,6 @@ function Team() {
 
                 <div className="p-4">
                   <h5 className="fw-bold mb-1">{person.name}</h5>
-
                   <p className="text-primary mb-0">{person.role}</p>
                 </div>
               </div>
@@ -267,7 +282,7 @@ function Contact() {
                 ></textarea>
               </div>
 
-              <button className="btn btn-primary btn-lg w-100">
+              <button type="submit" className="btn btn-primary btn-lg w-100">
                 Kirim Pesan
               </button>
             </form>
@@ -282,7 +297,6 @@ function Footer() {
   return (
     <footer className="py-4 bg-dark text-white">
       <div className="container d-flex flex-column flex-md-row justify-content-between gap-2">
-
         <span className="text-white-50">
           Built with React + Vite + Bootstrap
         </span>
